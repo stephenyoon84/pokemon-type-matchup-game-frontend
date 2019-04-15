@@ -1,0 +1,41 @@
+body {
+  margin: auto;
+  text-align: center;
+  background-color: white;
+}
+
+div {
+  /* border: 2px solid; */
+}
+
+.parent {
+  background-color: red;
+
+  display: flex;
+  height: 100px; /* Or whatever */
+  border: 2px solid;
+
+}
+
+.child {
+  width: 100px;  /* Or whatever */
+  height: 50px; /* Or whatever */
+  margin: auto;  /* Magic! */
+}
+
+#main_Title {
+  font-size: 34px;
+  font-weight: bold;
+  color: black;
+  text-shadow: 2px 2px yellow;
+  width: auto;
+}
+
+
+
+@media all and (max-width: 800px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
