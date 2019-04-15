@@ -4,8 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function renderCards(){
+  renderTarget()
+  renderAnswers()
+}
+
+function renderTarget(){
   let container = document.getElementById('container');
   let questionDiv = document.createElement('div');
+  questionDiv.id = "targetPokemon"
   questionDiv.style.backgroundColor = 'yellow'
   let targetHeader = document.createElement('div');
   targetHeader.classList.add('parent');
@@ -23,4 +29,8 @@ function renderCards(){
   img.src = "http://www.pngmart.com/files/2/Pikachu-PNG-HD.png"
   questionDiv.append(targetHeader, img)
   container.append(questionDiv)
+}
+
+function renderAnswers(){
+  let container = document.getElementById('container');
 }

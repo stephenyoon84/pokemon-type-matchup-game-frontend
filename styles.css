@@ -3,6 +3,10 @@ body {
   margin: auto;
   text-align: center;
   background-color: white;
+  background-image: url(https://media-s3-us-east-1.ceros.com/hype-beast/images/2018/07/17/8328aabd61c683129c4e685022e4e9f8/background-02-fade.jpg?imageOpt=1&fit=bounds&width=541);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 header {
@@ -33,6 +37,10 @@ div {
   color: black;
   text-shadow: 2px 2px yellow;
   width: auto;
+}
+
+#targetPokemon {
+  padding-bottom: 20px;
 }
 
 #targetPokemon-img {
