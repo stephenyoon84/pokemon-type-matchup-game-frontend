@@ -1,7 +1,15 @@
 body {
+  width: 800px;
   margin: auto;
   text-align: center;
   background-color: white;
+}
+
+header {
+  background-color: red;
+  height: 100px; /* Or whatever */
+  border: 2px solid;
+  margin-bottom: 50px;
 }
 
 div {
@@ -9,11 +17,7 @@ div {
 }
 
 .parent {
-  background-color: red;
-
   display: flex;
-  height: 100px; /* Or whatever */
-  border: 2px solid;
 
 }
 
@@ -31,10 +35,20 @@ div {
   width: auto;
 }
 
+#targetPokemon-img {
+  width: 300px;
+  height: 300px;
+}
+
+#container {
+  width: 500px;
+  margin: auto;
+  border: 5px solid black;
+}
 
 
 @media all and (max-width: 800px) {
-  .navigation {
+  header {
     /* When on medium sized screens, we center it by evenly distributing empty space around items */
     justify-content: space-around;
   }
