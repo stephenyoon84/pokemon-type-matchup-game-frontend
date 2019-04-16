@@ -9,10 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderCards(){
   let targetPokemon = document.getElementById('targetPokemon');
-  targetPokemon.innerHTML = ""
+      targetPokemon.innerHTML = ""
   let answerDiv = document.getElementById('answerDiv');
-  answerDiv.innerHTML = ""
+      answerDiv.innerHTML = ""
 
   Pokemon.getRandomPokemon()
   Pokemon.renderAnswersContainer()
+
 }

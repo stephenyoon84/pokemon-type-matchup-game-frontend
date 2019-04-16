@@ -28,6 +28,7 @@ div {
   width: 100px;  /* Or whatever */
   height: 40px; /* Or whatever */
   margin: auto;  /* Magic! */
+  padding-top: 10px;
 }
 
 /* .answerDiv {
