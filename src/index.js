@@ -14,6 +14,6 @@ function renderCards(){
       answerDiv.innerHTML = ""
 
   Pokemon.getRandomPokemon()
-  Pokemon.renderAnswersContainer()
+  Pokemon.renderOptions()
 
 }
