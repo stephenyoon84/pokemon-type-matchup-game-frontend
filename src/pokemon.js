@@ -18,7 +18,7 @@ class Pokemon {
     let questionDiv = document.getElementById('targetPokemon');
         questionDiv.dataset.id = pokemon.id
     let targetHeader = document.createElement('div');
-        targetHeader.classList.add('parent');
+        targetHeader.classList.add('parent', 'targetHeader');
     let nameH4 = document.createElement('h4');
         nameH4.id = "targetPokemon-name"
         nameH4.classList.add('child');
@@ -65,7 +65,7 @@ class Pokemon {
     let answerOption = document.createElement('div')
         answerOption.classList.add('optionDiv')
         answerOption.dataset.optionId = pokemon.id
-    answerOption.append(nameDiv, typeDiv, img)
+    answerOption.append(img, typeDiv, nameDiv)
     answerDiv.appendChild(answerOption)
   }
 }

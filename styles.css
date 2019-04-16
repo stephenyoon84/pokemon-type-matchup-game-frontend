@@ -22,29 +22,32 @@ div {
 
 .parent {
   display: flex;
-
 }
 
 .child {
   width: 100px;  /* Or whatever */
-  height: 50px; /* Or whatever */
+  height: 40px; /* Or whatever */
   margin: auto;  /* Magic! */
 }
 
-.answerDiv {
-  background-color: rgba(34,139,34,.5) ;
-}
+/* .answerDiv {
+  background-color: rgba(34,139,34,.6) ;
+} */
 
 .optionDiv  {
   background-color: lightgreen;
-  height: 100px;
+  height: 170px;
   width: 110px;
-  margin: 0 10px;
+  margin: 10px 10px;
 }
 
 .optionImg {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
+}
+
+.targetHeader {
+  margin-bottom: 0;
 }
 
 #main_Title {
@@ -54,12 +57,11 @@ div {
   text-shadow: 2px 2px yellow;
   width: auto;
 }
-
+/*
 #targetPokemon {
-  padding-bottom: 20px;
-  background-color: yellow;
+  background-color: rgba(34,139,34,.6);
 
-}
+} */
 
 #targetPokemon-img {
   width: 300px;
@@ -68,8 +70,12 @@ div {
 
 #container {
   width: 500px;
+  height: 540px;
   margin: auto;
-  border: 5px solid black;
+  border: 5px solid yellow;
+  margin-bottom: 30px;
+  background-color: rgba(34,139,34,.6);
+
 }
 
 
