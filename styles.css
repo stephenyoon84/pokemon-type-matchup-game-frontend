@@ -6,7 +6,7 @@ body {
   background-image: url(https://media-s3-us-east-1.ceros.com/hype-beast/images/2018/07/17/8328aabd61c683129c4e685022e4e9f8/background-02-fade.jpg?imageOpt=1&fit=bounds&width=541);
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: center center; */
+  background-position: center center;
 }
 
 header {
@@ -32,7 +32,7 @@ div {
 }
 
 .answerDiv {
-  background-color: forestgreen;
+  background-color: rgba(34,139,34,.5) ;
 }
 
 .optionDiv  {
@@ -57,6 +57,8 @@ div {
 
 #targetPokemon {
   padding-bottom: 20px;
+  background-color: yellow;
+
 }
 
 #targetPokemon-img {
