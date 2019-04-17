@@ -59,6 +59,11 @@ class User {
     })
   }
 
+  static renderLife(){
+    let lifecontainer = document.getElementById('life-container')
+    lifecontainer.innerHTML = `Life: <span id="life">5</span>`
+  }
+
   static findOrCreateUser(event){
     event.preventDefault()
     console.log("Hi")
@@ -69,20 +74,16 @@ class User {
       if (User.findUser(obj)){
         User.renderUser(User.findUser(obj));
         Pokemon.renderCards();
+        User.renderLife();
       }else{
         User.addUser(obj)
         Pokemon.renderCards();
+        User.renderLife();
       }
     }else{
       alert("Please input");
     }
   }
-
-  // static getUser(id) {
-  //   fetch(User.BASE_URL+id)
-  //   .then(r=>r.json())
-  //   .then(user=> User.renderUser(user))
-  // }
 
   static renderUser(user) {
     let usernameDisplay = document.getElementById('username_Display')

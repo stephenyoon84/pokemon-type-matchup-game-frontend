@@ -87,7 +87,7 @@ class Pokemon {
     for (let i=0; i<4;i++) {
       if (i === randNum){
         console.log(randNum)
-        Pokemon.renderSingleOption(Pokemon.getAnswerPokemon())
+        Pokemon.renderSingleOption(Pokemon.getAnswerPokemon(), true)
       } else {
         Pokemon.renderSingleOption(Pokemon.getNotAnswerPokemon())
       }
@@ -117,7 +117,7 @@ class Pokemon {
   }
 
   // helper method to render option.
-  static renderSingleOption(pokemon) {
+  static renderSingleOption(pokemon, answer = false) {
     let answerDiv = document.getElementById('answerDiv')
     let img = document.createElement('img')
         img.src = pokemon.image_url
@@ -128,7 +128,7 @@ class Pokemon {
         typeDiv.innerText = pokemon.type1
     let answerOption = document.createElement('div')
         answerOption.classList.add('optionDiv')
-        answerOption.dataset.optionId = pokemon.id
+        answerOption.dataset.answer = answer;
 
     answerOption.append(img, typeDiv, nameDiv)
     answerDiv.appendChild(answerOption)
