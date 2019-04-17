@@ -46,31 +46,28 @@ class Pokemon {
     return Pokemon.typeObj[type]
   }
 
-  static getAnswerPokemon() {
+  static getWeaknessArray() {
     let targetType = Pokemon.getTargetType()
-    let weaknessArry = Pokemon.getTargetWeakness(targetType)
-    let randWeaknessType = weaknessArry[Math.floor(Math.random() * weaknessArry.length)]
+    let weaknessArray = Pokemon.getTargetWeakness(targetType)
+    return weaknessArray
+  }
+
+  static getPokemon(array) {
+    let randWeaknessType = array[Math.floor(Math.random() * array.length)]
     let arrayPokemonWeakness= Pokemon.filterPokemonByType(randWeaknessType)
-    let randAnswerPokemon = arrayPokemonWeakness[Math.floor(Math.random() * arrayPokemonWeakness.length)]
-    console.log(randAnswerPokemon)
-    return randAnswerPokemon
+    return arrayPokemonWeakness[Math.floor(Math.random() * arrayPokemonWeakness.length)]
+  }
+
+  static getAnswerPokemon() {
+    let weaknessArray = Pokemon.getWeaknessArray()
+    return Pokemon.getPokemon(weaknessArray)
   }
 
   static getNotAnswerPokemon() {
-    let targetType = Pokemon.getTargetType()
-    let weaknessArry = Pokemon.getTargetWeakness(targetType)
     let newObj = {...Pokemon.typeObj}
-    weaknessArry.forEach(type => delete newObj[type])
-    let wrongTypes =  Object.keys(newObj)
-    let randOkPokemonType = wrongTypes[Math.floor(Math.random() * wrongTypes.length)]
-    let randOkPokemonArray = Pokemon.filterPokemonByType(randOkPokemonType)
-    let randOkPokemon = randOkPokemonArray[Math.floor(Math.random() * randOkPokemonArray.length)]
-    console.log(randOkPokemon)
-    return randOkPokemon
+    let weaknessArray = Pokemon.getWeaknessArray().forEach(type => delete newObj[type])
+    return Pokemon.getPokemon(Object.keys(newObj))
   }
-
-  //   return wrongTypes[Math.floor(Math.random() * wrongTypes.length)]
-  // }
 
   static renderCards(){
     let targetPokemon = document.getElementById('targetPokemon');
@@ -86,7 +83,6 @@ class Pokemon {
     let randNum = Math.round(Math.random() * 3);
     for (let i=0; i<4;i++) {
       if (i === randNum){
-        console.log(randNum)
         Pokemon.renderSingleOption(Pokemon.getAnswerPokemon(), true)
       } else {
         Pokemon.renderSingleOption(Pokemon.getNotAnswerPokemon())
