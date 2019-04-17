@@ -1,19 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // PokemonController.renderCards
-  // renderUserSignin()
-  renderCards();
+document.addEventListener("DOMContentLoaded", init)
+
+function init() {
+  let target = document.getElementById("main_Title") // change to submit for form
+      target.addEventListener('click', Pokemon.renderCards)
+  Pokemon.getAllPokemons()
   User.getUser(1)
-  let target = document.getElementById("targetPokemon")
-  target.addEventListener('click', renderCards)
-})
-
-function renderCards(){
-  let targetPokemon = document.getElementById('targetPokemon');
-      targetPokemon.innerHTML = ""
-  let answerDiv = document.getElementById('answerDiv');
-      answerDiv.innerHTML = ""
-
-  Pokemon.getRandomPokemon()
-  Pokemon.renderOptions()
-
 }

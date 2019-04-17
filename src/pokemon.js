@@ -20,60 +20,77 @@ class Pokemon {
    , 'fairy': ["poison", 'steel']
    , 'electric': ["ground"]
    , 'normal': ["fight"]}
-
-   //returns promise.
-  static getPokemon(id){
-    return fetch(this.BASE_URL+id)
-    .then(r=>r.json())
-  }
-
+  static allPokemons = []
   static getAllPokemons(){
     return fetch(this.BASE_URL)
     .then(r=>r.json())
+    .then(r=>{this.allPokemons = r})
   }
 
+  //returns array of pokemon of that type
   static filterPokemonByType(type) {
-    return Pokemon.getAllPokemons()
-    .then(pokemon=> {
-      pokemon.filter((pokemons)=> pokemons.type1 === type || pokemons.type2 === type)
-    }).then(pokemon=> {
-      debugger
-    })
+    return this.allPokemons.filter((pokemons) => pokemons.type1 === type || pokemons.type2 === type)
   }
 
-  // render random target pokemon.
+  // return random pokemon obj
   static getRandomPokemon() {
     let randomNum = Math.round(Math.random() * (803 - 1) + 1);
-    return Pokemon.getPokemon(randomNum)
-    .then(pokemon => Pokemon.renderTarget(pokemon))
+    return Pokemon.allPokemons[randomNum]
   }
 
-  static getNotAnswerType(type) {
-    let arrayOfTypes = this.typeObj[type]
+  static getTargetType(){
+    return document.getElementById('targetPokemon-type').innerText.toLowerCase()
+  }
+
+  static getTargetWeakness(type){
+    return Pokemon.typeObj[type]
+  }
+
+  static getAnswerPokemon() {
+    let targetType = Pokemon.getTargetType()
+    let weaknessArry = Pokemon.getTargetWeakness(targetType)
+    let randWeaknessType = weaknessArry[Math.floor(Math.random() * weaknessArry.length)]
+    let arrayPokemonWeakness= Pokemon.filterPokemonByType(randWeaknessType)
+    let randAnswerPokemon = arrayPokemonWeakness[Math.floor(Math.random() * arrayPokemonWeakness.length)]
+    console.log(randAnswerPokemon)
+    return randAnswerPokemon
+  }
+
+  static getNotAnswerPokemon() {
+    let targetType = Pokemon.getTargetType()
+    let weaknessArry = Pokemon.getTargetWeakness(targetType)
     let newObj = {...Pokemon.typeObj}
-    arrayOfTypes.forEach(type => delete newObj[type])
+    weaknessArry.forEach(type => delete newObj[type])
     let wrongTypes =  Object.keys(newObj)
-    return wrongTypes[Math.floor(Math.random() * wrongTypes.length)]
+    let randOkPokemonType = wrongTypes[Math.floor(Math.random() * wrongTypes.length)]
+    let randOkPokemonArray = Pokemon.filterPokemonByType(randOkPokemonType)
+    let randOkPokemon = randOkPokemonArray[Math.floor(Math.random() * randOkPokemonArray.length)]
+    return randOkPokemon
   }
 
+  //   return wrongTypes[Math.floor(Math.random() * wrongTypes.length)]
+  // }
+
+  static renderCards(){
+    let targetPokemon = document.getElementById('targetPokemon');
+        targetPokemon.innerHTML = ""
+    let answerDiv = document.getElementById('answerDiv');
+        answerDiv.innerHTML = ""
+    Pokemon.renderTarget(Pokemon.getRandomPokemon())
+    Pokemon.renderOptions()
+  }
   // render 4 random options.
   static renderOptions() {
     let answerDiv = document.getElementById('answerDiv')
-
+    let randNum = Math.round(Math.random() * 3);
     for (let i=0; i<4;i++) {
-
-      let randomNum = Math.round(Math.random() * (803 - 1) + 1);
-
-      Pokemon.getPokemon(randomNum).then(pokemon => {
-        Pokemon.renderSingleOption(pokemon)
-      })
+      if (i === randNum){
+        console.log(randNum)
+        Pokemon.renderSingleOption(Pokemon.getAnswerPokemon())
+      } else {
+        Pokemon.renderSingleOption(Pokemon.getNotAnswerPokemon())
+      }
     }
-
-
-  }
-
-  static test() {
-    console.log("connected")
   }
 
   // helper method to render target pokemon.
