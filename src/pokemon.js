@@ -120,13 +120,22 @@ class Pokemon {
         img.classList.add('optionImg')
     let nameDiv = document.createElement('div')
         nameDiv.innerText = pokemon.name
-    let typeDiv = document.createElement('div')
-        typeDiv.innerText = pokemon.type1
+    let type1Div = document.createElement('div')
+        type1Div.innerText = pokemon.type1
+    let type2Div = document.createElement('div')
+        type2Div.innerText = pokemon.type2
     let answerOption = document.createElement('div')
         answerOption.classList.add('optionDiv')
         answerOption.dataset.answer = answer;
+        answerOption.addEventListener('click', Pokemon.checkResult)
 
-    answerOption.append(img, typeDiv, nameDiv)
+    answerOption.append(nameDiv, img, type1Div, type2Div)
     answerDiv.appendChild(answerOption)
   }
+
+  static checkResult(e) {
+    let check = e.currentTarget.dataset.answer
+    check === 'true' ?  User.increaseScore() : User.decreaseLife()
+  }
+
 }

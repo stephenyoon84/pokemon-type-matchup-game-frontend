@@ -67,11 +67,15 @@ class User {
   static decreaseLife(){
     let life = document.getElementById('life');
     --life.innerText
+    console.log('incorrect answer')
+    Pokemon.renderCards()
   }
 
   static increaseScore(){
     let score = document.getElementById('score_Display');
     score.innerText = parseInt(score.innerText) + 100;
+    console.log('correct answer')
+    Pokemon.renderCards()
   }
 
   static findOrCreateUser(event){
