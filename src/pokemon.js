@@ -115,4 +115,15 @@ class Pokemon {
     answerOption.append(img, typeDiv, nameDiv)
     answerDiv.appendChild(answerOption)
   }
+
+  static renderCards(){
+    let targetPokemon = document.getElementById('targetPokemon');
+        targetPokemon.innerHTML = ""
+    let answerDiv = document.getElementById('answerDiv');
+        answerDiv.innerHTML = ""
+
+    Pokemon.getRandomPokemon()
+    Pokemon.renderOptions()
+
+  }
 }
