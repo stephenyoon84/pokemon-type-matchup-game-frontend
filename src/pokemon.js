@@ -3,23 +3,23 @@ class Pokemon {
   static BASE_URL = "http://localhost:3000/pokemons/"
   static typeObj = {
      'grass': ["fire", "ice", 'poison', 'flying', 'bug']
-   , 'rock': ["water", 'grass', 'fight', 'ground', 'steel']
-   , 'ice': ["fire", 'fight', 'rock', 'steel']
+   , 'rock': ["water", 'grass', 'fighting', 'ground', 'steel']
+   , 'ice': ["fire", 'fighting', 'rock', 'steel']
    , 'dragon': ["ice", 'dragon', 'fairy']
-   , 'dark': ["fight", 'bug', 'fairy']
+   , 'dark': ["fighting", 'bug', 'fairy']
    , 'psychic': ["bug", 'ghost', 'dark']
    , 'bug': ["fire", 'flying', 'rock']
    , 'flying': ["electric", 'ice', 'rock']
-   , 'steel': ["fire", 'fight', 'ground']
+   , 'steel': ["fire", 'fighting', 'ground']
    , 'fire': ["water", 'ground', 'rock']
-   , 'fight': ["flying", 'psychic', 'fairy']
+   , 'fighting': ["flying", 'psychic', 'fairy']
    , 'ground': ["water", 'grass', 'ice']
    , 'ghost': ["ghost", 'dark']
    , 'poison': ["ground", 'psychic']
    , 'water': ["electric", 'grass']
    , 'fairy': ["poison", 'steel']
    , 'electric': ["ground"]
-   , 'normal': ["fight"]}
+   , 'normal': ["fighting"]}
   static allPokemons = []
   static getAllPokemons(){
     return fetch(this.BASE_URL)

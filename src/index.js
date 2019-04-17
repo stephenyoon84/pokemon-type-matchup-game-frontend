@@ -7,9 +7,3 @@ function init() {
   User.getUsers()
   User.renderLogin()
 }
-// document.addEventListener("DOMContentLoaded", () => {
-//   // PokemonController.renderCards
-//   // renderUserSignin()
-//   User.getUsers()
-//   User.renderLogin()
-// })
