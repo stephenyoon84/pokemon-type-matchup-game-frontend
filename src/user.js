@@ -64,6 +64,16 @@ class User {
     lifecontainer.innerHTML = `Life: <span id="life">5</span>`
   }
 
+  static decreaseLife(){
+    let life = document.getElementById('life');
+    --life.innerText
+  }
+
+  static increaseScore(){
+    let score = document.getElementById('score_Display');
+    score.innerText = parseInt(score.innerText) + 100;
+  }
+
   static findOrCreateUser(event){
     event.preventDefault()
     console.log("Hi")
