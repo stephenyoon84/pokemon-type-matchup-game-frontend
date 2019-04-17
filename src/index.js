@@ -4,5 +4,12 @@ function init() {
   let target = document.getElementById("main_Title") // change to submit for form
       target.addEventListener('click', Pokemon.renderCards)
   Pokemon.getAllPokemons()
-  User.getUser(1)
+  User.getUsers()
+  User.renderLogin()
 }
+// document.addEventListener("DOMContentLoaded", () => {
+//   // PokemonController.renderCards
+//   // renderUserSignin()
+//   User.getUsers()
+//   User.renderLogin()
+// })
