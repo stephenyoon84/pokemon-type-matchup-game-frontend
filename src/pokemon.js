@@ -65,6 +65,7 @@ class Pokemon {
     let randOkPokemonType = wrongTypes[Math.floor(Math.random() * wrongTypes.length)]
     let randOkPokemonArray = Pokemon.filterPokemonByType(randOkPokemonType)
     let randOkPokemon = randOkPokemonArray[Math.floor(Math.random() * randOkPokemonArray.length)]
+    console.log(randOkPokemon)
     return randOkPokemon
   }
 
