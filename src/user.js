@@ -1,5 +1,5 @@
 class User {
-  static all = []
+  static allUsers
   static BASE_URL = "http://localhost:3000/users/"
 
   constructor(user) {
@@ -7,32 +7,28 @@ class User {
     this.name = user.name
     this.email = user.email
     this.scores = user.scores
-    User.all.push(this)
   }
 
   static renderLogin(){
     console.log("let's create form")
     let formDiv = document.getElementById('targetPokemon');
     let form = document.createElement('form');
-    form.id = "loginForm";
+        form.id = "loginForm";
     let formH2 = document.createElement('h2');
-    formH2.innerText = "Please input your username and email: "
-    formDiv.append(formH2, form)
+        formH2.innerText = "Please input your username and email: "
     let nameInput = document.createElement('input');
-    nameInput.placeholder = "Name";
-    nameInput.id = "nameInput";
+        nameInput.placeholder = "Name";
+        nameInput.id = "nameInput";
     let emailInput = document.createElement('input');
-    emailInput.placeholder = "email";
-    emailInput.id = "emailInput";
+        emailInput.placeholder = "email";
+        emailInput.id = "emailInput";
     let submit = document.createElement('button');
-    submit.innerText = "Play";
+        submit.innerText = "Play";
+
+    formDiv.append(formH2, form)
     form.addEventListener('submit', User.findOrCreateUser)
     form.append(nameInput, emailInput, submit);
   }
-  // static getTopTen() {
-  //   // User.all.
-  // }
-  static allUsers
 
   static getUsers(){
     return fetch(User.BASE_URL).then(r => r.json()).then(d => {return User.allUsers = d})
@@ -66,9 +62,17 @@ class User {
 
   static decreaseLife(){
     let life = document.getElementById('life');
-    --life.innerText
-    console.log('incorrect answer')
-    Pokemon.renderCards()
+    if (life.innerText === '0') {
+      alert("game over") // render high score page
+      Score.addScore()
+      Score.getFinalScore()
+      let container = document.getElementById('container')
+      container.innerHTML = ""
+    } else {
+      life.innerText--
+      Pokemon.renderCards()
+      console.log('incorrect answer')
+    }
   }
 
   static increaseScore(){
