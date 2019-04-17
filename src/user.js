@@ -76,7 +76,6 @@ class User {
 
   static findOrCreateUser(event){
     event.preventDefault()
-    console.log("Hi")
     let name = document.getElementById('nameInput').value
     let email = document.getElementById('emailInput').value
     let obj = {name: name, email: email}
