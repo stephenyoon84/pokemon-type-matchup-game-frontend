@@ -10,7 +10,6 @@ class User {
   }
 
   static renderLogin(){
-    console.log("let's create form")
     let formDiv = document.getElementById('targetPokemon');
     let form = document.createElement('form');
         form.id = "loginForm";
