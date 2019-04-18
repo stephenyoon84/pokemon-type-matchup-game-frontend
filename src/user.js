@@ -58,17 +58,21 @@ class User {
   static renderLife(){
     let lifecontainer = document.getElementById('life-container')
     lifecontainer.innerHTML = `Life: <span id="life">5</span>`
+    Score.getAllScores()
+  }
+
+  static renderGameOver(){
+    let lifecontainer = document.getElementById('life-container')
+    lifecontainer.innerText = "Game Over"
   }
 
   static decreaseLife(){
     let life = document.getElementById('life');
     if (life.innerText === '0') {
-      alert("game over") // render high score page
-      // Score.addScore()
       Score.getFinalScore()
-      Score.getOrederdScores().then(d => Score.renderRank(d))
-      // let container = document.getElementById('container')
-      // container.innerHTML = ""
+      User.renderGameOver()
+      Score.renderRank(Score.getOrederdScores())
+      Score.renderBestScore()
     } else {
       life.innerText--
       Pokemon.renderCards()
@@ -109,7 +113,7 @@ class User {
         usernameDisplay.dataset.id = user.id
   }
 
-  static getUserNameById(idInput){
-    return User.allUsers.find(u => u.id === idInput).name
+  static getUserById(idInput){
+    return User.allUsers.find(u => u.id === idInput)
   }
 }
