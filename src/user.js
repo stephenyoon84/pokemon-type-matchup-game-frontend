@@ -56,7 +56,7 @@ class User {
 
   static renderLife(){
     let lifecontainer = document.getElementById('life-container')
-    lifecontainer.innerHTML = `Life: <span id="life">5</span>`
+    lifecontainer.innerHTML = `<h3>Life: <span id="life">5</span></h3>`
     Score.getAllScores()
   }
 
