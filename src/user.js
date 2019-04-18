@@ -68,7 +68,7 @@ class User {
 
   static decreaseLife(){
     let life = document.getElementById('life');
-    if (life.innerText === '0') {
+    if (life.innerText === '1') {
       Score.getFinalScore()
       User.renderGameOver()
       Score.renderRank(Score.getOrederdScores())
@@ -76,6 +76,7 @@ class User {
     } else {
       life.innerText--
       Pokemon.renderCards()
+      User.getUsers()
       console.log('incorrect answer')
     }
   }

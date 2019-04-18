@@ -23,7 +23,7 @@ class Score {
   static getFinalScore() {
     let userId = document.getElementById('username_Display').dataset.id
     let finalScore = parseInt(document.getElementById('score_Display').innerText)
-    let obj = {user_id: userId, user_score: finalScore}
+    let obj = {user_id: parseInt(userId), user_score: finalScore}
     Score.addScore(obj)
     Score.allScores.push(obj)
   }
@@ -45,7 +45,9 @@ class Score {
     let targetContainer = document.getElementById('targetPokemon');
     targetContainer.innerHTML = "";
     let ol = document.createElement('ol');
+    console.log(User.allUsers)
     console.log(arr)
+    debugger
     for (let i = 0; i < 10; i++){
       let li = document.createElement('li');
       li.innerText = `${User.getUserById(parseInt(arr[i].user_id)).name} - ${arr[i].user_score}`
