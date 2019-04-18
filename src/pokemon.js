@@ -132,6 +132,8 @@ class Pokemon {
         randType = pokemon.type2;
       }
     }
+    let container = document.getElementById('container')
+        container.classList = randType
         typeH4.innerText = randType.toUpperCase();
     let img = document.createElement('img');
         img.id = "targetPokemon-img"

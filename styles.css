@@ -13,12 +13,14 @@ header {
   background-color: red;
   height: 100px; /* Or whatever */
   border: 2px solid;
+  border-radius: 15px;
   margin-top: 25px;
   padding-bottom: 20px;
 }
 
-div {
-  /* border: 2px solid; */
+h2 {
+  color: rgb(226, 225, 246);
+  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
 }
 
 .parent {
@@ -32,12 +34,14 @@ div {
   padding-top: 10px;
 }
 
-/* .answerDiv {
-  background-color: rgba(34,139,34,.6) ;
-} */
+.targetHeader {
+  margin-bottom: 0;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
 .optionDiv  {
-  background-color: rgba(59, 76, 202, .25);
+  background-color: rgba(59, 76, 202, .50);
   background-image: url(https://cdn.shopify.com/s/files/1/0257/6087/products/Poke_ball_Single_Front.png?v=1523938876);
   background-position: center;
   background-repeat: no-repeat;
@@ -58,11 +62,10 @@ div {
   text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
 }
 
-
 .optionDiv:hover {
   border: 2px solid rgb(0, 0, 0);
   box-shadow: 0px 0px 20px 0px black;
-  background-color: rgba(59, 76, 202, .45);
+  background-color: rgba(59, 76, 202, .75);
 }
 
 .optionDiv:active {
@@ -74,16 +77,6 @@ div {
   height: 100px;
 }
 
-.targetHeader {
-  margin-bottom: 0;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-
-#loginForm {
-  margin-top: 150px;
-}
 
 #main_Title {
   font-size: 34px;
@@ -92,11 +85,28 @@ div {
   text-shadow: 2px 2px yellow;
   width: auto;
 }
-/*
-#targetPokemon {
-  background-color: rgba(34,139,34,.6);
 
-} */
+#life-container {
+  height: 45px;
+}
+
+#container {
+  width: 550px;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  padding-bottom: 30px;
+  border: 10px solid rgb(255, 222, 0);
+  margin-bottom: 30px;
+  background-image: url(http://sfwallpaper.com/images/pokemon-background-pictures-11.jpg);
+  background-size: inherit;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px black;
+}
+
+#loginForm {
+  margin-top: 150px;
+}
 
 #targetPokemon-img {
   width: 400px;
@@ -109,26 +119,6 @@ div {
   background-size: cover;
   background-position: top;
   box-shadow: 0px 5px 13px 2px black;
-
-}
-
-#container {
-  width: 550px;
-  height: auto;
-  margin: auto;
-  padding: 10px;
-  padding-bottom: 30px;
-  border: 10px solid rgb(255, 222, 0);
-  margin-bottom: 30px;
-  background-image: url(https://i.ytimg.com/vi/k7xQ8LWL50g/maxresdefault.jpg);
-  background-size: cover;
-  border-radius: 15px;
-  box-shadow: 0px 0px 20px 0px black;
-
-}
-
-#life-container {
-  height: 45px;
 }
 
 #targetPokemon-name {
@@ -136,6 +126,49 @@ div {
   margin-left: 0;
 }
 
+#container.water, #container.ice {
+  background-image: url(https://i.ytimg.com/vi/9pyp6BXqcDM/maxresdefault.jpg);
+}
+
+#container.normal, #container.flying {
+  background-image: url(https://i.ytimg.com/vi/ze6zcaemf7M/maxresdefault.jpg);
+}
+
+#container.fire {
+  background-image: url(https://i.ytimg.com/vi/jX8liqmebWk/maxresdefault.jpg);
+}
+
+#container.grass, #container.bug {
+  background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/pokemon-grass-type-background.jpg);
+}
+
+#container.fighting, #container.ground, #container.rock {
+  background-image: url(https://i.ytimg.com/vi/k7xQ8LWL50g/maxresdefault.jpg);
+}
+
+#container.dark {
+  background-image: url(https://i.ytimg.com/vi/rLslWnrYnfE/maxresdefault.jpg);
+}
+
+#container.dragon {
+  background-image: url(https://i.ytimg.com/vi/UKwJdfqhu84/maxresdefault.jpg);
+}
+
+#container.electric {
+  background-image: url(https://i.ytimg.com/vi/VG0gh5GHoBU/maxresdefault.jpg);
+}
+
+#container.fairy {
+  background-image: url(https://i.ytimg.com/vi/F4tHUeG-Rsw/maxresdefault.jpg);
+}
+
+#container.steel {
+  background-image: url(https://i.ytimg.com/vi/IK9TxCgn7IM/maxresdefault.jpg);
+}
+
+#container.psychic, #container.ghost, #container.poison {
+  background-image: url(https://i.ytimg.com/vi/D3fKX9qQAOA/maxresdefault.jpg);
+}
 
 @media all and (max-width: 800px) {
   header {
