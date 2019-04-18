@@ -68,17 +68,36 @@ class User {
 
   static decreaseLife(){
     let life = document.getElementById('life');
-    if (life.innerText === '0') {
+    if (life.innerText === '1') {
       Score.getFinalScore()
       User.renderGameOver()
-      Score.renderRank(Score.getOrederdScores())
+      Score.renderRank(Score.getOrderedScores())
       Score.renderBestScore()
+      User.renderRestartButton()
     } else {
       life.innerText--
       Pokemon.renderCards()
       console.log('incorrect answer')
     }
   }
+
+  static restartGame() {
+    console.log('connected')
+    Score.resetScore()
+    User.renderLife()
+    Pokemon.renderCards()
+    document.getElementById('restartButton').remove()
+  }
+
+  static renderRestartButton() {
+    let container = document.getElementById('container')
+    let button = document.createElement('button')
+        button.id = 'restartButton'
+        button.innerText = 'Restart Game'
+        container.append(button)
+        button.addEventListener('click', User.restartGame)
+  }
+
 
   static increaseScore(){
     let score = document.getElementById('score_Display');
