@@ -77,6 +77,7 @@ class User {
     } else {
       life.innerText--
       Pokemon.renderCards()
+      User.getUsers()
       console.log('incorrect answer')
     }
   }
