@@ -123,7 +123,16 @@ class Pokemon {
     let typeH4 = document.createElement('h4');
         typeH4.id = "targetPokemon-type"
         typeH4.classList.add('child');
-        typeH4.innerText = pokemon.type1.toUpperCase();
+    let randType = pokemon.type1;
+    if (pokemon.type2 !== null) {
+      let r = Math.round(Math.random())
+      if (r === 0){
+        randType = pokemon.type1;
+      }else{
+        randType = pokemon.type2;
+      }
+    }
+        typeH4.innerText = randType.toUpperCase();
     let img = document.createElement('img');
         img.id = "targetPokemon-img"
         img.src = pokemon.image_url
