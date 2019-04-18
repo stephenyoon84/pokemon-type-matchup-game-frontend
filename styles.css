@@ -107,7 +107,7 @@ div {
 
 #container {
   width: 550px;
-  height: 750px;
+  height: auto;
   margin: auto;
   padding: 10px;
   border: 10px solid rgb(255, 222, 0);
