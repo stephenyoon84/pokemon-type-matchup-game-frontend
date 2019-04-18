@@ -61,12 +61,8 @@ class Pokemon {
   }
 
   static getIrrelevantPokemon(weaknessArray) {
-    let randNum = Math.round(Math.random() * 802);
-    let randPoke = Pokemon.allPokemons[randNum]
-    console.log('weaknessArray', Pokemon.getWeaknessArray())
+    let randPoke = Pokemon.getRandomPokemon()
     console.log('randPoke', randPoke)
-
-    debugger
     // check that pokemon doesn't have a type from weaknessArray array.
     weaknessArray.forEach(type => {
       if (randPoke.type1 === type || randPoke.type2 === type) {
@@ -87,6 +83,8 @@ class Pokemon {
   static getNotAnswerPokemon(newTypeObj) {
     let weaknessArray = Pokemon.getWeaknessArray()
         weaknessArray.forEach(type => delete newTypeObj[type])
+    console.log('weaknessArray', Pokemon.getWeaknessArray())
+
     let relevantTypes = Object.keys(newTypeObj)
     let irelevantPokemon =  Pokemon.getIrrelevantPokemon(weaknessArray)
     return irelevantPokemon
@@ -100,6 +98,7 @@ class Pokemon {
     Pokemon.renderTarget(Pokemon.getRandomPokemon())
     Pokemon.renderOptions()
   }
+
   // render 4 random options.
   static renderOptions() {
     let answerDiv = document.getElementById('answerDiv')
@@ -156,7 +155,6 @@ class Pokemon {
     answerOption.append(nameDiv, img, type1Div, type2Div)
     answerDiv.appendChild(answerOption)
   }
-
   static checkResult(e) {
     let check = e.currentTarget.dataset.answer
     check === 'true' ?  User.increaseScore() : User.decreaseLife()
