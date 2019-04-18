@@ -29,7 +29,7 @@ class Pokemon {
 
   // return random pokemon obj
   static getRandomPokemon() {
-    let randomNum = Math.round(Math.random() * (803 - 1) + 1);
+    let randomNum = Math.floor(Math.random() * (802));
     return Pokemon.allPokemons[randomNum]
   }
 
@@ -62,12 +62,10 @@ class Pokemon {
 
   static getIrrelevantPokemon(weaknessArray) {
     let randPoke = Pokemon.getRandomPokemon()
-    console.log('randPoke', randPoke)
     // check that pokemon doesn't have a type from weaknessArray array.
     weaknessArray.forEach(type => {
       if (randPoke.type1 === type || randPoke.type2 === type) {
         randPoke = Pokemon.getIrrelevantPokemon(weaknessArray)
-        console.log('randPoke2', randPoke)
       }
     })
     return randPoke
@@ -77,14 +75,13 @@ class Pokemon {
     let weaknessArray = Pokemon.getWeaknessArray()
     let answer = Pokemon.getRelevantPokemon(weaknessArray)
     console.log('answer', answer.name)
+    console.log('weaknessArray', Pokemon.getWeaknessArray())
     return answer
   }
 
   static getNotAnswerPokemon(newTypeObj) {
     let weaknessArray = Pokemon.getWeaknessArray()
         weaknessArray.forEach(type => delete newTypeObj[type])
-    console.log('weaknessArray', Pokemon.getWeaknessArray())
-
     let relevantTypes = Object.keys(newTypeObj)
     let irelevantPokemon =  Pokemon.getIrrelevantPokemon(weaknessArray)
     return irelevantPokemon
