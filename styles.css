@@ -53,6 +53,11 @@ div {
   height: 45px;
 }
 
+.optionDiv div {
+  color: white;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
 
 .optionDiv:hover {
   border: 2px solid rgb(0, 0, 0);
@@ -71,6 +76,8 @@ div {
 
 .targetHeader {
   margin-bottom: 0;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 
@@ -110,9 +117,11 @@ div {
   height: auto;
   margin: auto;
   padding: 10px;
+  padding-bottom: 30px;
   border: 10px solid rgb(255, 222, 0);
   margin-bottom: 30px;
-  background-color: rgba(34,139,34,.8);
+  background-image: url(https://i.ytimg.com/vi/k7xQ8LWL50g/maxresdefault.jpg);
+  background-size: cover;
   border-radius: 15px;
   box-shadow: 0px 0px 20px 0px black;
 
