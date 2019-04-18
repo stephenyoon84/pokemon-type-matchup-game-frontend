@@ -64,10 +64,11 @@ class User {
     let life = document.getElementById('life');
     if (life.innerText === '0') {
       alert("game over") // render high score page
-      Score.addScore()
+      // Score.addScore()
       Score.getFinalScore()
-      let container = document.getElementById('container')
-      container.innerHTML = ""
+      Score.getOrederdScores().then(d => Score.renderRank(d))
+      // let container = document.getElementById('container')
+      // container.innerHTML = ""
     } else {
       life.innerText--
       Pokemon.renderCards()
@@ -106,5 +107,9 @@ class User {
     let usernameDisplay = document.getElementById('username_Display')
         usernameDisplay.innerText = user.name
         usernameDisplay.dataset.id = user.id
+  }
+
+  static getUserNameById(idInput){
+    return User.allUsers.find(u => u.id === idInput).name
   }
 }
