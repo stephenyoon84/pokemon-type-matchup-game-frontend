@@ -27,46 +27,69 @@ class Pokemon {
     .then(r=>{this.allPokemons = r})
   }
 
-  //returns array of pokemon of that type
-  static filterPokemonByType(type) {
-    return this.allPokemons.filter((pokemons) => pokemons.type1 === type || pokemons.type2 === type)
-  }
-
   // return random pokemon obj
   static getRandomPokemon() {
     let randomNum = Math.round(Math.random() * (803 - 1) + 1);
     return Pokemon.allPokemons[randomNum]
   }
 
+  // refer to card and return 'type' shown
   static getTargetType(){
     return document.getElementById('targetPokemon-type').innerText.toLowerCase()
   }
 
-  static getTargetWeakness(type){
-    return Pokemon.typeObj[type]
-  }
-
   static getWeaknessArray() {
     let targetType = Pokemon.getTargetType()
-    let weaknessArray = Pokemon.getTargetWeakness(targetType)
+    let weaknessArray = Pokemon.typeObj[targetType]
     return weaknessArray
   }
 
-  static getPokemon(array) {
-    let randWeaknessType = array[Math.floor(Math.random() * array.length)]
-    let arrayPokemonWeakness= Pokemon.filterPokemonByType(randWeaknessType)
-    return arrayPokemonWeakness[Math.floor(Math.random() * arrayPokemonWeakness.length)]
+  //returns array of pokemon of that type
+  static filterPokemonByType(type, weaknessArray) {
+    return Pokemon.allPokemons.filter((pokemons) => pokemons.type1 === type || pokemons.type2 === type)
+  }
+
+  // select a pokemon with a relevant type.
+  static getRelevantPokemon(typeArray) { // array of pokemon's relevant types
+    // Randomly select a TYPE from the array
+    let randType = typeArray[Math.floor(Math.random() * typeArray.length)]
+    // Collect an array of pokemon with that TYPE
+    let arrayTypePokemon= Pokemon.filterPokemonByType(randType)
+    // Randomly select a POKEMON from the weakArray
+    let pokemonWithType = arrayTypePokemon[Math.floor(Math.random() * arrayTypePokemon.length)]
+    return pokemonWithType
+  }
+
+  static getIrrelevantPokemon(weaknessArray) {
+    let randNum = Math.round(Math.random() * 802);
+    let randPoke = Pokemon.allPokemons[randNum]
+    console.log('weaknessArray', Pokemon.getWeaknessArray())
+    console.log('randPoke', randPoke)
+
+    debugger
+    // check that pokemon doesn't have a type from weaknessArray array.
+    weaknessArray.forEach(type => {
+      if (randPoke.type1 === type || randPoke.type2 === type) {
+        randPoke = Pokemon.getIrrelevantPokemon(weaknessArray)
+        console.log('randPoke2', randPoke)
+      }
+    })
+    return randPoke
   }
 
   static getAnswerPokemon() {
     let weaknessArray = Pokemon.getWeaknessArray()
-    return Pokemon.getPokemon(weaknessArray)
+    let answer = Pokemon.getRelevantPokemon(weaknessArray)
+    console.log('answer', answer.name)
+    return answer
   }
 
-  static getNotAnswerPokemon() {
-    let newObj = {...Pokemon.typeObj}
-    let weaknessArray = Pokemon.getWeaknessArray().forEach(type => delete newObj[type])
-    return Pokemon.getPokemon(Object.keys(newObj))
+  static getNotAnswerPokemon(newTypeObj) {
+    let weaknessArray = Pokemon.getWeaknessArray()
+        weaknessArray.forEach(type => delete newTypeObj[type])
+    let relevantTypes = Object.keys(newTypeObj)
+    let irelevantPokemon =  Pokemon.getIrrelevantPokemon(weaknessArray)
+    return irelevantPokemon
   }
 
   static renderCards(){
@@ -81,11 +104,12 @@ class Pokemon {
   static renderOptions() {
     let answerDiv = document.getElementById('answerDiv')
     let randNum = Math.round(Math.random() * 3);
+    let newTypeObj = {...Pokemon.typeObj}
     for (let i=0; i<4;i++) {
       if (i === randNum){
         Pokemon.renderSingleOption(Pokemon.getAnswerPokemon(), true)
       } else {
-        Pokemon.renderSingleOption(Pokemon.getNotAnswerPokemon())
+        Pokemon.renderSingleOption(Pokemon.getNotAnswerPokemon(newTypeObj))
       }
     }
   }
