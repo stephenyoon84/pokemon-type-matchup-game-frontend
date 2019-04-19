@@ -75,10 +75,17 @@ class User {
       User.renderRestartButton()
     } else {
       life.innerText--
+      User.changeLifeColor()
       Pokemon.renderCards()
       User.getUsers()
       console.log('incorrect answer')
     }
+  }
+
+  static changeLifeColor(){
+    let lifeContainer = document.getElementById('life-container');
+    lifeContainer.classList = "red";
+    setTimeout(()=>{lifeContainer.classList = ""}, 300)
   }
 
   static restartGame() {
@@ -97,7 +104,6 @@ class User {
         container.append(button)
         button.addEventListener('click', User.restartGame)
   }
-
 
   static increaseScore(){
     let score = document.getElementById('score_Display');

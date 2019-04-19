@@ -44,13 +44,15 @@ class Score {
   static renderRank(arr){
     let targetContainer = document.getElementById('targetPokemon');
         targetContainer.innerHTML = "";
+    let h3 = document.createElement('h3');
+        h3.innerText = "Top 10";
     let ol = document.createElement('ol');
     for (let i = 0; i < 10; i++){
       let li = document.createElement('li');
       li.innerText = `${User.getUserById(parseInt(arr[i].user_id)).name} - ${arr[i].user_score}`
       ol.appendChild(li)
     }
-    targetContainer.appendChild(ol)
+    targetContainer.append(h3, ol)
   }
 
   static renderBestScore(){
