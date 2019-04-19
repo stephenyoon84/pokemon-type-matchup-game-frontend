@@ -42,6 +42,8 @@ class Score {
   }
 
   static renderRank(arr){
+    let container = document.getElementById('container')
+        container.classList = 'resultPage'
     let targetContainer = document.getElementById('targetPokemon');
         targetContainer.innerHTML = "";
     let h3 = document.createElement('h3');

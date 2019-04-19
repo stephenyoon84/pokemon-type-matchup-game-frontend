@@ -23,6 +23,30 @@ h2 {
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
 }
 
+#targetPokemon h3 {
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+#targetPokemon.resultPage {
+  margin-bottom: 0;
+}
+
+#answerDiv h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  width: fit-content;
+  margin: 0 auto 10px auto;
+}
+
+#restartButton {
+  border-radius: 5px;
+}
+
+ol {
+  margin: 0px;
+}
+
 .parent {
   display: flex;
 }
@@ -32,6 +56,8 @@ h2 {
   height: 40px; /* Or whatever */
   margin: auto;  /* Magic! */
   padding-top: 10px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
 }
 
 .targetHeader {
@@ -75,6 +101,14 @@ h2 {
 .optionImg {
   width: 100px;
   height: 100px;
+}
+
+#container.resultPage {
+  background-image: url(https://www.anaitgames.com/images/uploads/2013/09/analisis-pokemon-x-4.jpg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
 }
 
 
@@ -178,7 +212,7 @@ h2 {
   background-image: url(https://i.ytimg.com/vi/D3fKX9qQAOA/maxresdefault.jpg);
 }
 
-#targetPokemon, #answerDiv h4 {
+#targetPokemon {
   width: fit-content;
   margin: auto;
 }
