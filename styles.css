@@ -19,8 +19,8 @@ header {
 }
 
 h2 {
-  color: rgb(226, 225, 246);
-  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+  color: rgb(255, 222, 0);
+  text-shadow:-2.5px 0 black, 0 2.5px black, 2.5px 0 black, 0 -2.5px black;
 }
 
 #targetPokemon h3 {
